@@ -1,23 +1,30 @@
 const express = require("express");
 const dotenv = require("dotenv");
-dotenv.config();
+const cors = require("cors");
 const MongoDbConnection = require("./config/db");
 const { createUser } = require("./Controller/facebook");
-const cors = require("cors");
 
+// Load environment variables
+dotenv.config();
+
+// Initialize Express app
 const app = express();
-app.use(
-  cors({
-    origin: "*", // toutes les origines
-  })
-);
+
+// Middleware
+app.use(cors({ origin: "*" }));
 app.use(express.json());
+
+// Connect to MongoDB
 MongoDbConnection();
-app.post("/FacebookLogin", createUser);
+
+// Routes
+app.post("/facebookLogin", createUser); // lowercase route
 app.get("/hello", (req, res) => {
-  return res.send("hello world");
+  res.send("Hello world");
 });
 
-app.listen(process.env.port, () => {
-  console.log(`Example app listening on port ${process.env.port}`);
+// Start server
+const PORT = process.env.PORT || 1010;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
