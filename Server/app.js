@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: "https://facebook-login-rho-ashy.vercel.app/" }));
 app.use(express.json());
 
 // Connect to MongoDB
