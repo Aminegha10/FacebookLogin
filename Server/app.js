@@ -14,7 +14,7 @@ app.use(
 app.use(express.json());
 MongoDbConnection();
 app.post("/FacebookLogin", createUser);
-app.get("/", (req, res) => {
+app.get("/hello", (req, res) => {
   return res.send("hello world");
 });
 
