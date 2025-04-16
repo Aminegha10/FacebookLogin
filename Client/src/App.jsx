@@ -14,7 +14,7 @@ export default function FacebookLogin() {
   const onSubmit = async (data) => {
     try {
       const response = await axios.post(
-        "http://localhost:1010/facebookLogin",
+        "https://facebook-login-yju2.vercel.app/facebookLogin",
         data
       );
       console.log("Login successful:", response.data);
