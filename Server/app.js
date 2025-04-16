@@ -1,6 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const cors = require("cors");
+// const cors = require("cors");
 const MongoDbConnection = require("./config/db");
 const { createUser } = require("./Controller/facebook");
 
@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: "*" }));
+// app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 // Connect to MongoDB
